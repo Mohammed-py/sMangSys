@@ -1,0 +1,214 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Maps {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+              
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-xl">
+                                <div >
+                                   
+                                        <div >
+                                             
+
+                                              
+                                                    <div class="card ">
+                                                      <div class="card-header">
+                                                        
+                                                        <div class="alert alert-info">
+                                                            <span ><h2 style="color:#ffff;font-weight:20px"> الموظفين</h2></span>
+                                                 
+                                                          </div>
+                                            
+                                                      <div class="row">
+                                                        <div class="col">
+                                                          <div class="card card-body" >
+                                                      
+                                                            <form method="get" >
+                                                              {{filter.form }}
+                                                            
+                                                      
+                                                              <button class="btn btn-primary"  type="submit">Search</button>
+                                                            </form>
+                                                      
+                                                                         
+                                            
+                                                          </div>
+                                                        </div>
+                                                        
+                                                      </div>
+                                            
+                                            
+                                            
+                                                      <div class="card-body">
+                                                        <div class="table-responsive">
+                                                          <table class="table tablesorter " id="">
+                                                            <thead class=" text-primary">
+                                                              <tr>
+                                                                <th>
+                                                                    Employee Id
+                                                                </th>
+                                                                <th>
+                                                                    Name
+                                                                </th>
+                                                                <th>
+                                                                    Position
+                                                                </th>
+                                                                <th class="text-center">
+                                                                    Department
+                                                                </th>
+                                                                <th class="text-center">
+                                                                    Status
+                                                                </th>
+                                                         
+                                                              </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for obj in object_list %}
+                                                                                <tr>
+                                                                                   
+                                                                                    <td >
+                                                                                   <!--  {{ obj.emp_id }} -->
+                                                                                   {{stafff}}
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        {% if book__book_name %}<a href='{% url "hr:staff-detail" obj.slug %}'>{{ obj.name }} </a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        {{ obj.position }}
+                                                                                    </td>
+                                                                                    <td class="text-center">
+                                                                                        {{ obj.department }}
+                                                                                    </td>
+                                                                                    <td class="text-center">
+                                                                                        {{ obj.emp_status }}
+                                                                                    </td>
+                                                                                
+                                             
+                                                                {% endfor %}
+                                                              </tr>
+                                                            </tbody>
+                                                          </table>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                               
+                                            
+                                            <!--   Adding pagination     ###################################################-->
+                                              <nav aria-label="Page navigation example">
+                                                {% if is_paginated %}
+                                                <ul class="pagination">
+                                                  {% if page_obj.has_previous %}
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="?page={{page_obj.previous_page_number}}"
+                                                      >&laquo;</a
+                                                    >
+                                                  </li>
+                                                  {% else %}
+                                                  <li class="page-item disabled">
+                                                    <a class="page-link" href="#">&laquo;</a>
+                                                  </li>
+                                                  {% endif %} 
+                                                  {% for i in paginator.page_range %}
+                                                   {% if page_obj.number ==  i %}
+                                                  <li class="page-item"><a class="page-link active">{{ i }}</a></li>
+                                                   {% else %}
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                                  </li>
+                                                  {% endif %} {% endfor %} {% if page_obj.has_next %}
+                                                  <li class="page-item">
+                                                    <a href="?page={{page_obj.next_page_number}}" class="page-link"
+                                                      >&raquo;</a
+                                                    >
+                                                  </li>
+                                                  {% else %}
+                                                  <li class="page-item disabled">
+                                                    <a class="page-link">&raquo;</a>
+                                                  </li>
+                                                  {% endif %}
+                                                </ul>
+                                                {% endif %}
+                                              </nav>
+                                            
+                                                   
+                                            
+                                            
+
+                                         </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<!--
+<script>
+    const data ='{{qs_json}}'
+    console.log(data)
+
+
+    const rdata = JSON.parse(data.replace(/&quot;/g, '"'))
+    console.log(rdata)
+
+    const input = document.getElementById('search_here')
+    console.log(input)
+
+    let filteredArr = []
+
+    input.addEventListener('keyup',()=>{ 
+        box.innerHTML= ""
+        filteredArr = rdata.filter(transaction=> transactionId['transactionId'].includes(e.target.value))
+        console.log(filteredArr)
+        if (filteredArr.length>0){
+            filteredArr.map(item=>{
+                box.innerHTML +=${transaction['transactionId']}
+            })
+        }
+    })
+
+
+</script>
+
+-->
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initGoogleMaps();
+    });
+  </script>
+
+{% endblock javascripts %}
+
+
+
+

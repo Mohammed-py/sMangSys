@@ -1,0 +1,368 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page Blank {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                  
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div >
+                                       
+                                            <div class="row">
+                                                 
+
+                                                       
+                                                          <div class="col-md-12 col-xl-4">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>Leave Types </h5>
+                                                                    
+                                                                </div>
+                                                                <div class="card-block table-border-style">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>
+                                                                                      days_name
+                                                                                    </th>
+                                                                                    <th>
+                                                                                      descraption
+                                                                                    </th>
+                                                                                    <th>
+                                                                                      num_of_days
+                                                                                    </th>
+                                                                               
+                                                                                    <th class="text-center">
+                                                                                      tot_allowed_days
+                                                                                    </th>
+                                                                                   
+                                                                
+                                                                                  </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                               
+                                                                                    
+                                                                                   
+                                                                                    {% for obj in levTy %}
+                                                                                    <tr>
+                                                                                       
+                                                                                        <td>
+                                                                                         {{ obj.days_name }}
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            {{ obj.descraption }}
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            {{ obj.num_of_days }}
+                                                                                        </td>
+                                                                                       
+                                                                                        <td class="text-center">
+                                                                                            {{ obj.tot_allowed_days }}
+                                                                                        </td>
+                                                                                        
+                                                 
+                                                                                    {% endfor %}
+                                                                                </tr>
+                                                                               
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 col-xl-4">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>Days Off </h5>
+                                                                    
+                                                                </div>
+                                                                <div class="card-block table-border-style">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>
+                                                                                        days_name
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        descraption
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        start_date
+                                                                                    </th>
+                                                                               
+                                                                                    <th class="text-center">
+                                                                                        end_date
+                                                                                    </th>
+                                                                                   
+                                                                
+                                                                                  </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                               
+                                                                                    
+                                                                                   
+                                                                                    {% for obj in dyff %}
+                                                                                    <tr>
+                                                                                       
+                                                                                        <td>
+                                                                                         {{ obj.days_name }}
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            {{ obj.descraption }}
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            {{ obj.start_date }}
+                                                                                        </td>
+                                                                                       
+                                                                                        <td class="text-center">
+                                                                                            {{ obj.tot_allowed_days }}
+                                                                                        </td>
+                                                                                        
+                                                 
+                                                                                    {% endfor %}
+                                                                                </tr>
+                                                                               
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 col-xl-4">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>Departments </h5>
+                                                                    
+                                                                </div>
+                                                                <div class="card-block table-border-style">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>
+                                                                                        Departments Name
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        Num of Emp
+                                                                                    </th>
+                                                                                    
+                                                                
+                                                                                  </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                               
+                                                                                    
+                                                                                   
+                                                                                    {% for obj in dep %}
+                                                                                    <tr>
+                                                                                       
+                                                                                        <td>
+                                                                                         {{ obj.dep_name }}
+                                                                                        </td>
+                                                                                        <td>
+
+                                                                                            {{ obj.employees.count }}
+                                                                                            
+                                                                                            
+                                                                                           </td>
+                                        
+                                                                                        
+                                                 
+                                                                                    {% endfor %}
+                                                                                </tr>
+                                                                               
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                
+
+
+                                      
+                                                    <div class="col-md-8 col-xl-4">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h5>Leave Requests </h5>
+                                                                
+                                                            </div>
+                                                            <div class="card-block table-border-style">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>
+                                                                                    Request ID
+                                                                                </th>
+                                                                                <th>
+                                                                                    Employee
+                                                                                </th>
+                                                                                <th>
+                                                                                    Type of the Leave  
+                                                                                </th>
+
+                                                                                <th>
+                                                                                    Status
+                                                                                </th>
+                                                                                
+                                                            
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        
+                                                                                
+                                                                            
+                                                                                {% for obj in empLeaveRequest %}
+                                                                                <tr>
+                                                                                
+                                                                                    <td>
+                                                                                        {{ obj.leave_req_id }}
+                                                                                    </td>
+                                                                                    <td>
+        
+                                                                                        {{ obj.employee }}
+                                                                                        
+                                                                                        
+                                                                                        </td>
+
+                                                                                        <td>
+                                                                                            {{ obj.leaveType }}
+                                                                                        </td>
+                                                                                        <td>
+            
+                                                                                            {{ obj.status }}
+                                                                                            
+                                                                                            
+                                                                                            </td>
+                                    
+                                                                                    
+                                            
+                                                                                {% endfor %}
+                                                                            </tr>
+                                                                        
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-md-12 col-xl">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h5>Employees </h5>
+
+                                                                
+
+                                                            </div>
+
+
+                                                            <div class="card-block table-border-style">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>
+                                                                                    Employee ID
+                                                                                </th>
+                                                                                <th>
+                                                                                    Employee
+                                                                                </th>
+                                                                                <th>
+                                                                                    Type of the Leave  
+                                                                                </th>
+
+                                                                                <th>
+                                                                                    Status
+                                                                                </th>
+                                                                                
+                                                            
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        
+                                                                                
+                                                                            
+                                                                                {% for obj in empProfile %}
+                                                                                <tr>
+                                                                                
+                                                                                    <td>
+                                                                                        {{ obj.emp_id }}
+                                                                                    </td>
+                                                                                    <td>
+        
+                                                                                        {{ obj.name }}
+                                                                                        
+                                                                                        
+                                                                                        </td>
+
+                                                                                        <td>
+                                                                                            {{ obj.department }}
+                                                                                        </td>
+                                                                                        <td>
+            
+                                                                                            {{ obj.is_active }}
+                                                                                            
+                                                                                            
+                                                                                            </td>
+                                    
+                                                                                    
+                                            
+                                                                                {% endfor %}
+                                                                            </tr>
+                                                                        
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <div  class="text-right -mt-4">
+                                                                        
+
+                                                                        <form action='{% url "hr:emplist" %}' method='GET'>
+                                                                            <button class="btn btn-primary"type='submit'> See More</button>
+                                                                            </form> 
+
+                                                                        
+                                                                      </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                             </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

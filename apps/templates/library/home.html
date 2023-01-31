@@ -1,0 +1,183 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page Blank {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                   
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        
+                                        <div class="card-block">
+                                             <!-- [ Library Content ] start -->
+                                          
+
+
+
+                                             
+
+
+                                              <!-- all books -->
+                                              <ul
+                                                class="mt-10 md:px-4 lg:px-12 xl:px-0 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4"
+                                              >
+                                                {% for book in books %}
+                                                <li class="mb-12 md:mb-4 mx-auto text-center">
+                                                  <h2 class="text-lg font-bold">{{book.name}}</h2>
+                                                  <h4 class="text-xs font-regular text-blue-500 pt-2">{{book.author}}</h4>
+                                                  <h4 class="text-sm pb-2 text-yellow-300">{{book.category}}</h4>
+                                                  <div class="grid place-items-center p-2">
+                                                    <img
+                                                      src="{{book.image.url}}"
+                                                      alt="{{book.name}}"
+                                                      height="100"
+                                                      width="100"
+                                                      class="mb-4"
+                                                    />
+                                                  </div>
+                                                  {% if not user.is_superuser and not user.is_anonymous %}
+                                                  <!--  -->
+                                              
+                                                  {% if book in issuedbooks %}
+                                                  <p class="text-green-500 font-medium">issued</p>
+                                                  {% elif book in requestedbooks %}
+                                                  <p class="font-medium">issued requested</p>
+                                                  {% else %}
+                                              
+                                                  <a
+                                                    class="text-white hover:shadow-md rounded bg-pink-600 px-4 py-1"
+                                                    href="/request-book-issue/{{book.id}}/"
+                                                    >Request Issue</a
+                                                  >
+                                                  {% endif %} {% endif %} {% if user.is_superuser %}
+                                                  <a
+                                                    href="/admin/library/book/{{book.id}}/change/"
+                                                    class="text-white hover:shadow-md rounded bg-pink-600 px-4 py-1"
+                                                    >Edit</a
+                                                  >
+                                                  {% endif %}
+                                                </li>
+                                              
+                                                {% endfor %}
+                                              </ul>
+                                              
+                                              <!-- author search results -->
+                                              {% if 'author' in request.get_full_path %} {% for author in author_results %}
+                                              
+                                              <div {% if not forloop.first %} class="my-8" {% endif %}>
+                                                <h1 class="text-lg font-bold mb-2">{{author.name}}</h1>
+                                              
+                                                <ul class="list-disc px-4">
+                                                  {% for book in author.book_set.all %}
+                                                  <li>
+                                                    <div class="flex flex-row space-x-4">
+                                                      <h2>{{book.name}}</h2>
+                                                      {% if not user.is_superuser and not user.is_anonymous %}
+                                                      <!--  -->
+                                                      {% if book in issuedbooks %}
+                                                      <p class="text-green-500 font-medium">issued</p>
+                                                      {% elif book in requestedbooks %}
+                                                      <p class="text-pink-500 font-medium">issued requested</p>
+                                                      {% else %}
+                                                      <a
+                                                        class="hover:shadow-md rounded text-blue-500 underline"
+                                                        href="/request-book-issue/{{book.id}}/"
+                                                        >Request Issue</a
+                                                      >
+                                                      {% endif %} {% endif %}
+                                                    </div>
+                                                  </li>
+                                              
+                                                  {%empty %}
+                                                  <h2>No Books</h2>
+                                                  {% endfor %}
+                                                </ul>
+                                              </div>
+                                              {%empty %}
+                                              <h2>Not Found</h2>
+                                              {% endfor %} {% endif %}
+                                              <!-- book results -->
+                                              {% if 'book' in request.get_full_path %}
+                                              <ul
+                                                class="mt-10 md:px-4 lg:px-12 xl:px-0 grid grid-cols-2 md:grid-cols-4 justify-items-center"
+                                              >
+                                                {% for book in books_results %}
+                                                <li class="px-2">
+                                                  <h2 class="text-md font-bold">{{book.name}}</h2>
+                                                  <h4 class="text-sm">{{book.author}}</h4>
+                                                  <img
+                                                    src="{{book.image.url}}"
+                                                    alt="{{book.name}}"
+                                                    height="80"
+                                                    width="80"
+                                                    class="mb-4"
+                                                  />
+                                                  {% if not user.is_superuser and not user.is_anonymous %}
+                                                  <!--  -->
+                                                  {% if book in issuedbooks %}
+                                                  <p class="text-green-500 font-medium">issued</p>
+                                                  {% elif book in requestedbooks %}
+                                                  <p class="text-pink-500 font-medium">issued requested</p>
+                                                  {% else %}
+                                                  <a
+                                                    class="hover:shadow-md rounded text-blue-500 underline"
+                                                    href="/request-book-issue/{{book.id}}/"
+                                                    >Request Issue</a
+                                                  >
+                                                  {% endif %} {% endif %} {% if user.is_superuser %}
+                                                  <a
+                                                    href="/admin/library/book/{{book.id}}/change/"
+                                                    class="text-white hover:shadow-md rounded bg-blue-500 px-4 py-1"
+                                                    >Edit</a
+                                                  >
+                                                  {% endif %}
+                                                </li>
+                                                {%empty %}
+                                                <h2>No Books Found</h2>
+                                                {% endfor %}
+                                              </ul>
+                                              {% endif %}
+                                              <script>
+                                                const options = document.querySelectorAll("#sort_type option");
+                                                options.forEach((option) => {
+                                                  if (option.textContent === "{{selected | escapejs}}") {
+                                                    option.selected = true;
+                                                  }
+                                                });
+                                              </script>
+
+
+
+                                            
+                                            <!-- [ Library Content ] end -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

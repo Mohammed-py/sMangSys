@@ -1,0 +1,74 @@
+<!-- [ navigation menu ] start -->
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-brand header-logo">
+            <a href="/" class="b-brand">
+                <div class="b-bg">
+                    <i class="feather icon-trending-up"></i>
+                </div>
+                <span class="b-title">Datta Able</span>
+            </a>
+            <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+        </div>
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Navigation</label>
+                </li>
+                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+                    class="nav-item {% if 'index' in segment %} active {% endif %}">
+                    <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                            class="pcoded-mtext">Dashboard</span></a>
+                </li>
+
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>HR</label>
+                </li>
+                <li >
+                    <a href="{% url 'hr:dahsboard' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                            class="pcoded-mtext">dahsboard</span></a>
+                </li>
+
+                <li >
+                    <a href="{% url 'studentregister' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                            class="pcoded-mtext">SighnUP Student</span></a>
+                </li>
+
+                <li >
+                    <a href="{% url 'register' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                            class="pcoded-mtext">Rigester1</span></a>
+                </li>
+
+             
+
+
+
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>EXTRA</label>
+              
+                <li >
+                    <a href="{% url 'home:home_old' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                            class="pcoded-mtext">EXTRA Menu</span></a>
+                </li>
+
+            </li>
+
+
+
+            <li class="nav-item pcoded-menu-caption">
+                <label>Library</label>
+          
+            <li >
+                <a href="{% url 'library:library_home' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                        class="pcoded-mtext">Library Home</span></a>
+            </li>
+
+        </li>
+                
+            </ul> 
+        </div>
+    </div>
+</nav>
+<!-- [ navigation menu ] end -->
