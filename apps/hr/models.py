@@ -177,8 +177,9 @@ class EmpLeaveRecord(models.Model):
 
 class StaffProfile(EmpProfile):
 
-    user = models.OneToOneField(
-        Staff, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.OneToOneField( User, on_delete=models.SET_NULL, null=True, blank=True)
+    emp_type = models.CharField(default="staff", max_length=50)
+
 
     def __str__(self):
         return self.name
