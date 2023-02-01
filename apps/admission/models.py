@@ -73,7 +73,11 @@ class TermsOfGrade(models.Model):
     year = models.CharField(max_length=50, null=True, blank=True)
     start_date = models.DateField()
     end_date = models.DateField()
+<<<<<<< HEAD
+
+=======
  
+>>>>>>> master
     def __str__(self):
         return f'{self.term_name} {"/"} {self.gradeLEVEL}{"/"} {self.year}'
 
@@ -91,6 +95,11 @@ class TeacherProfile(EmpProfile):
     user = models.OneToOneField(
         Teacher, on_delete=models.SET_NULL, null=True, blank=True)
 
+<<<<<<< HEAD
+    emp_type = models.CharField(default="teacher", max_length=50)
+
+=======
+>>>>>>> master
     teached_subjects = models.ManyToManyField(Subject, blank=True)
     teached_classRooms = models.ManyToManyField(ClassRoom, blank=True)
 

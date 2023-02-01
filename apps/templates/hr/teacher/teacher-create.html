@@ -1,0 +1,377 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Maps {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+              
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-xl">
+                                <div >
+                                   
+                                        <div >
+                                             
+
+                                              
+                                                    <div class="card ">
+                                                      <div class="card-header">
+                                                        
+                                                        <div class="alert alert-info">
+                                                            <span ><h2 style="color:#ffff;font-weight:20px"> الموظفين</h2></span>
+                                                 
+                                                          </div>
+                                            
+                                                      <div class="row">
+                                                        <div class="col">
+                                                          <div class="card card-body" >
+                                                      
+                                                            <form method="get" >
+                                                              {{filter.form }}
+                                                            
+                                                      
+                                                              <button class="btn btn-primary"  type="submit">Search</button>
+                                                            </form>
+                                                      
+                                                                         
+                                            
+                                                          </div>
+                                                        </div>
+                                                        
+                                                      </div>
+                                            
+                                            
+                                            
+                                                      <div class="card-body">
+                                                        <div class="table-responsive">
+                                                        
+
+
+
+                                                            <div class="card-block">
+
+                                                                <form method="post">
+                                                                    {% csrf_token %}
+                                                                                            <div class="row" style="padding-bottom:50px"> 
+                                                                                                <div class="col-8">
+                                                                                                        <div class="form-group">
+                                                                                                                        
+                                                                                                            <div class="col-3" >
+                                                                                                                <label for="exampleInputEmail6">Employee ID</label>
+                                                                                                                <input type="email" class="form-control" id='{{ form.emp_id }}' >
+                                                                                                            </div>
+                                                                                                                           
+                                                                                                                           
+                                                                                                         </div>
+                                                                                                    </div>
+                                                
+
+
+                                                                                                    <div class="col-8">
+                                                                                                        <div class="form-group">
+                                                                                                                        
+                                                                                                            <div class="col-3" >
+                                                                                                                
+                                                                                                                        <div class="mb-3">
+                                                                                                                                    <label class="my-1 me-2" for="inlineFormCustomSelectPref">Maniger</label>
+
+                                                                                                                                                <form action="" method="GET"></form>
+                                                                                                                                                    <select>
+                                                                                                                                                    {% for emp in allEmp %}
+                                                                                                                                                    <option value="{{genre.id}}"> {{emp.name}} </option>
+                                                                                                                                                    {% endfor %}
+                                                                                                                                                    </select>
+                                                                                                                                                    <button type="submit">Search</button>
+                                                                                                                                                </form>
+
+
+                                                                                                                                                    <select class="form-select" id="inlineFormCustomSelectPref" aria-label="Default select example">
+
+                                                                                                                                                        <option selected="">Open this select menu</option>
+                                                                                                                                                        <option value="1">One</option>
+                                                                                                                                                        <option value="2">Two</option>
+                                                                                                                                                        <option value="3">Three</option>
+                                                                                                                                                    </select>
+                                                                                                                        </div>
+                                                                                                                
+                                                                                                            </div>
+                                                                                                                           
+                                                                                                                           
+                                                                                                         </div>
+                                                                                                    </div>
+
+
+
+                                                                                                <div class="col-4 text-right">
+                                                                                                    <div class="text-left"><label > Maniger: </label><h5>{% if teacher.manager != Null %}<a href='{% url "hr:emp-detail" teacher.manager.slug%}'>{{ teacher.manager }} 88{% endif %}</a></h5></div>
+                                                                                                </div>
+                                                                                                
+                                                                                            </div>
+                                                
+                                                                                        
+                                                                                            <div class="row">
+
+                                                                                            
+                                                
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="exampleInputEmail1">Name</label>
+                                                                                                                    <h4>{{ form.name }}</h4>
+                                                                                                                
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                    
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="exampleInputEmail1">Date of Birth</label>
+                                                                                                                    <h5  >{{ form.birth_date }}</h5>
+                                                                                                                
+                                                                                                                </div>
+                                                                                                            </div>
+                                                
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="exampleInputEmail1">Gender</label>
+                                                                                                                    <h5  >{{ form.gender}}</h5>
+                                                                                                                
+                                                                                                                </div>
+                                                                                                            </div>
+                                                
+                                                                                                        
+                                                
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="exampleInputEmail1">Id Number</label>
+                                                                                                                    <h4>{{ form.id_number }}</h4>
+                                                                                                                
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                    
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="exampleInputEmail1">Address</label>
+                                                                                                                    <h5  >{{ form.address }}</h5>
+                                                                                                                
+                                                                                                                </div>
+                                                                                                            </div>
+                                                
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="exampleInputEmail1">Blood Type</label>
+                                                                                                                    <h5  >{{ form.blood_group}}</h5>
+                                                                                                                
+                                                                                                                </div>
+                                                                                                            </div>
+                                                
+                                                                                                    
+                                                                                                        
+                                                                                                    </div>
+                                                
+                                                
+                                                                                            <div class="row" style="padding-top :30px;">
+                                                                                                
+                                                                                            
+                                                                                                                                    
+                                                                                                        <div class="col-sm-6 mb-4">
+                                                                                                            <div class="form-group">
+                                                                                                                <label for="exampleInputEmail1">Email</label>
+                                                                                                                <h4>{{ form.email }}</h4>
+                                                                                                            
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6 mb-4">
+                                                                                                            <div class="form-group">
+                                                                                                                <label for="fn">Contact Number</label>
+                                                                                                                <h4>{{ form.contact_number }}</h4>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                
+                                                                                                        <hr>
+                                                                                                </div> 
+                                                                                            
+                                                
+                                                                                                <div class="row" style="padding-top :30px;">
+                                                                                                
+                                                                                                    <dt class="col-12" style="font-size:20px">Job Details</dt><h3></h3>
+                                                                                                                                        
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="exampleInputEmail1">Department</label>
+                                                                                                                    <h4>{{ form.department }}</h4>
+                                                                                                                
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="fn">Position</label>
+                                                                                                                    <h4>{{ form.position }}</h4>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="fn">Joining Date </label>
+                                                                                                                    <h4>{{ form.joining_date }}</h4>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="fn">Job Status </label>
+                                                                                                                    <h4>{{ form.emp_status  }}</h4>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                
+                                                                                                            <div class="col-sm-6 mb-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label for="fn">Salary </label>
+                                                                                                                    <h4>{{ form.salary  }}</h4>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                
+                                                                                                            
+                                                    
+                                                                                                            
+                                                                                                    </div> 
+                    
+                                                                        <input type="submit">
+                                                                    </form>
+                    
+                                                                </div>
+
+
+                                                            <div class="py-5">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <form method="post">
+                                                                            {% csrf_token %}
+                                                                            {{ form.name }}
+                                                                            <input type="submit">
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                               
+                                            
+                                            <!--   Adding pagination     ###################################################-->
+                                              <nav aria-label="Page navigation example">
+                                                {% if is_paginated %}
+                                                <ul class="pagination">
+                                                  {% if page_obj.has_previous %}
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="?page={{page_obj.previous_page_number}}"
+                                                      >&laquo;</a
+                                                    >
+                                                  </li>
+                                                  {% else %}
+                                                  <li class="page-item disabled">
+                                                    <a class="page-link" href="#">&laquo;</a>
+                                                  </li>
+                                                  {% endif %} 
+                                                  {% for i in paginator.page_range %}
+                                                   {% if page_obj.number ==  i %}
+                                                  <li class="page-item"><a class="page-link active">{{ i }}</a></li>
+                                                   {% else %}
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                                  </li>
+                                                  {% endif %} {% endfor %} {% if page_obj.has_next %}
+                                                  <li class="page-item">
+                                                    <a href="?page={{page_obj.next_page_number}}" class="page-link"
+                                                      >&raquo;</a
+                                                    >
+                                                  </li>
+                                                  {% else %}
+                                                  <li class="page-item disabled">
+                                                    <a class="page-link">&raquo;</a>
+                                                  </li>
+                                                  {% endif %}
+                                                </ul>
+                                                {% endif %}
+                                              </nav>
+                                            
+                                                   
+                                            
+                                            
+
+                                         </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<!--
+<script>
+    const data ='{{qs_json}}'
+    console.log(data)
+
+
+    const rdata = JSON.parse(data.replace(/&quot;/g, '"'))
+    console.log(rdata)
+
+    const input = document.getElementById('search_here')
+    console.log(input)
+
+    let filteredArr = []
+
+    input.addEventListener('keyup',()=>{ 
+        box.innerHTML= ""
+        filteredArr = rdata.filter(transaction=> transactionId['transactionId'].includes(e.target.value))
+        console.log(filteredArr)
+        if (filteredArr.length>0){
+            filteredArr.map(item=>{
+                box.innerHTML +=${transaction['transactionId']}
+            })
+        }
+    })
+
+
+</script>
+
+-->
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initGoogleMaps();
+    });
+  </script>
+
+{% endblock javascripts %}
+
+
+
+

@@ -1,0 +1,235 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Profile {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Empolyee Info</h3>
+                                            
+                                        </div>
+                                        <!-- [ teacher info  ] start -->
+                                        <div class="card-block">
+                                            <div class="row" style="padding-bottom:50px"> 
+                                                <div class="col-8">
+                                                        <div class="form-group">
+                                                                        
+                                                                            <label for="exampleInputEmail1">teacher ID : </label>
+                                                                            <h4>
+                                                                            {{ teacher.emp_id }}  
+                                                                        
+                                                                        </h4>
+                                                                </div>
+                                                    </div>
+
+                                                <div class="col-4 text-right">
+                                                    <div class="text-left"><label > Maniger: </label><h5>{% if teacher.manager != Null %}<a href='{% url "hr:emp-detail" teacher.manager.slug%}'>{{ teacher.manager }} 88{% endif %}</a></h5></div>
+                                                </div>
+                                                
+                                            </div>
+
+                                         
+                                            <div class="row">
+
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Name</label>
+                                                                    <h4>{{ teacher.name }}</h4>
+                                                                
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Date of Birth</label>
+                                                                    <h5  >{{ teacher.birth_date }}</h5>
+                                                                
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Gender</label>
+                                                                    <h5  >{{ teacher.gender|lower}}</h5>
+                                                                
+                                                                </div>
+                                                            </div>
+
+                                                        
+
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Id Number</label>
+                                                                    <h4>{{ teacher.id_number }}</h4>
+                                                                
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Address</label>
+                                                                    <h5  >{{ teacher.address }}</h5>
+                                                                
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Blood Type</label>
+                                                                    <h5  >{{ teacher.blood_group}}</h5>
+                                                                
+                                                                </div>
+                                                            </div>
+
+                                                       
+                                                        
+                                                    </div>
+
+
+                                            <div class="row" style="padding-top :30px;">
+                                                 
+                                              
+                                                                                    
+                                                        <div class="col-sm-6 mb-4">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1">Email</label>
+                                                                <h4>{{ teacher.email }}</h4>
+                                                            
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 mb-4">
+                                                            <div class="form-group">
+                                                                <label for="fn">Contact Number</label>
+                                                                <h4>{{ teacher.contact_number }}</h4>
+                                                            </div>
+                                                        </div>
+
+                                                        <hr>
+                                                </div> 
+                                             
+
+                                                <div class="row" style="padding-top :30px;">
+                                                 
+                                                    <dt class="col-12" style="font-size:20px">Job Details</dt><h3></h3>
+                                                                                        
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Department</label>
+                                                                    <h4>{{ teacher.department }}</h4>
+                                                                
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="fn">Position</label>
+                                                                    <h4>{{ teacher.position }}</h4>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="fn">Joining Date </label>
+                                                                    <h4>{{ teacher.joining_date }}</h4>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="fn">Job Status </label>
+                                                                    <h4>{{ teacher.emp_status  }}</h4>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-6 mb-4">
+                                                                <div class="form-group">
+                                                                    <label for="fn">Salary </label>
+                                                                    <h4>{{ teacher.salary  }}</h4>
+                                                                </div>
+                                                            </div>
+
+                                                            
+    
+                                                            
+                                                    </div> 
+
+                                               
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                
+
+
+
+                                  <!-- [ USER INFO Content ] start -->
+                                <div class="col-sm-4">
+                                    <div class="card">
+                                        <div class="card-block">
+                                            <div class="d-flex align-items-center justify-content-center flex-column">
+                                                <div class="w-50 p-3">
+                                                    <img src="{{ ASSETS_ROOT }}/images/user/profile.jpg" alt="profile image"
+                                                        class="img-fluid rounded-circle">
+                                                </div>
+                                                <div class="text-center">
+                                                    <h4 class="font-weight-bold h6">
+                                                        <div class="text-center align-center"  style="align-items:center !important;justify-content:center !important;background-color: rgb(26, 115, 187);width: 150px;height: 150px;border-radius: 150px">
+                                                            <h2 style="padding: 30%; color: rgb(255, 255, 255);" >{{ teacher.name.0 }}</h2>
+                                                        </div>
+                                                
+                                                    </h4>
+                                                    <p class="font-italic text-muted">
+                                                        {% if teacher.user.username %} {{ teacher.user.username }} {% endif %}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="small font-weight-light mt-4 text-center text-muted">
+                                                <p>
+                                                    This page is your private space.
+                                                    <br />
+                                                </p>
+                                            </div>
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <a href="#" class="h6 text-muted d-block m-1"><i
+                                                        class="icon feather icon-facebook"></i></a>
+                                                <a href="#" class="h6 text-muted d-block m-1"><i
+                                                        class="icon feather icon-twitter"></i></a>
+                                                <a href="#" class="h6 text-muted d-block m-1"><i
+                                                        class="icon feather icon-instagram"></i></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

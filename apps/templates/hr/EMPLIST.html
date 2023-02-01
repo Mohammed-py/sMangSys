@@ -45,6 +45,10 @@
                                                               <button class="btn btn-primary"  type="submit">Search</button>
                                                             </form>
                                                       
+
+                                                            <form action='{% url "hr:create-teacher" %}' method='GET'>
+                                                                <button class="btn btn-primary"type='submit'>Adding New Teacher </button>
+                                                                </form> 
                                                                          
                                             
                                                           </div>
@@ -78,16 +82,15 @@
                                                               </tr>
                                                             </thead>
                                                             <tbody>
-                                                                {% for obj in object_list %}
+                                                                {% for obj in allEMP %}
                                                                                 <tr>
                                                                                    
                                                                                     <td >
-<<<<<<< HEAD
                                                                                         {{ obj.emp_id }} 
                                                                                
                                                                                     </td>
                                                                                     <td>
-                                                                                                {% if obj___name %}
+                                                                                                {% if obj. %}
                                                                                                           <a href='{% url "hr:staff-detail" obj.slug %}'>{{ obj.name }} </a>
                                                                                                           
                                                                                                 48484
@@ -96,13 +99,6 @@
                                                                                                 6666666666666666
                                                                                                 
                                                                                                 {% endif %}
-=======
-                                                                                   <!--  {{ obj.emp_id }} -->
-                                                                                   {{stafff}}
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        {% if book__book_name %}<a href='{% url "hr:staff-detail" obj.slug %}'>{{ obj.name }} </a>
->>>>>>> master
                                                                                     </td>
                                                                                     <td>
                                                                                         {{ obj.position }}
