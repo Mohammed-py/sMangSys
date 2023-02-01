@@ -177,6 +177,7 @@ class EmpLeaveRecord(models.Model):
 
 class StaffProfile(EmpProfile):
 
+
     user = models.OneToOneField( User, on_delete=models.SET_NULL, null=True, blank=True)
     emp_type = models.CharField(default="staff", max_length=50)
 
